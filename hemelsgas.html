@@ -29,7 +29,7 @@
         <p>Hoeveel bomen telt dit eiland?</p>
         <input type="number" id="input4">
         <h3 id="vraag5">Vraag 5</h3>
-        <p>Wie is de slimste mens ter wereld?</p>
+        <p id="smart">Wie is de slimste mens ter wereld?</p>
         <input type="text" id="input5">
         <h3 id="vraag6">Vraag 6</h3>
         <p>De twee kortste zijden van dit driehoekige eiland zijn 60 en 80, wat is de langste zijde?</p>
@@ -104,6 +104,10 @@
                         document.getElementById("vraag8").style.color = "green"
                     } else {
                         document.getElementById("vraag8").style.color = "red"
+                    }
+
+                    if (input5.toLowerCase() == "casper") {
+                        document.getElementById("smart").innerHTML += " (niet Casper, maar bedankt)"
                     }
                 }
             }
