@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.webp?v=2">
+</head>
+<body>
+    <div id="header">
+        <img src="assets/logo.webp" id="logo">
+    </div>
+    <div id="contents">
+        <h1>Teleporteersysteem</h1>
+        <h2>Voorwerp: Nachtkristal</h2>
+        <p>Om deze teleportatie te voltooien, zijn drie dynamische codes vereist. Deze codes veranderen klokslag elke minuut.<br> De nodige documenten zijn verzonden.</p>
+        <h3>Code 1</h3>
+        <input type="number" id="input1">
+        <h3>Code 2</h3>
+        <input type="number" id="input2">
+        <h3>Code 3</h3>
+        <input type="number" id="input3">
+        <button id="verify" onclick="verify()">Verifiëren</button>
+        <script>
+            // Code 1: product of hour and minute
+            // Code 2: (sum of hour and minute) * minute
+            // Code 3: minute**3
+            function verify() {
+                const d = new Date()
+                var hour = d.getHours()
+                var minute = d.getMinutes()
+                const code1 = hour * minute
+                const code2 = (hour + minute) * minute
+                const code3 = minute**3
+                var input1 = document.getElementById("input1").value
+                var input2 = document.getElementById("input2").value
+                var input3 = document.getElementById("input3").value
+                if (input1 == code1 && input2 == code2 && input3 == code3) {
+                    window.location.href = "nachtkristal_.html"; 
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

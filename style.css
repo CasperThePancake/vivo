@@ -1,0 +1,55 @@
+h1 {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: -20px;
+}
+
+p {
+    text-align: center;
+}
+
+body {
+    font-family: Georgia;
+    background-color: #d2cdc1;
+}
+
+#header, #contents {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#logo {
+    width:100px;
+}
+
+#verify {
+    margin-top:5px;
+}
+
+button {
+    width:100px;
+    height:25px;
+    background-color:black;
+    color:white;
+    border:none;
+    border-radius:5%;
+    transition: color 0.2s ease transform 0.2s ease;
+}
+
+button:active {
+    color:gold;
+    transform: scale(1.02);
+}
+
+#code {
+    margin-top:-5px;
+    font-size:large;
+    font-style:italic;
+}

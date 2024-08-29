@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <script>
+        // Calculate the product of the current hour and minute
+        function calculateAndRedirect() {
+            const now = new Date();
+            const hour = now.getHours();  // Get current hour (0-23)
+            const minute = now.getMinutes();  // Get current minute (0-59)
+            const code2 = (hour + minute) * minute;  // Calculate the product
+
+            // Store the value locally using localStorage
+            localStorage.setItem('code2', code2);
+
+            // Redirect to the second page
+            window.location.href = 'code2.html';
+        }
+    </script>
+</head>
+<body onload="calculateAndRedirect()">
+    <!-- Content is not necessary since the page will redirect immediately -->
+</body>
+</html>

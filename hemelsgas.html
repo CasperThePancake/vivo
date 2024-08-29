@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.webp?v=2">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div id="header">
+        <img src="assets/logo.webp" id="logo">
+    </div>
+    <div id="contents">
+        <h1>Teleporteersysteem</h1>
+        <h2>Voorwerp: Hemels gas</h2>
+        <p>Om deze teleportatie te voltooien, moet u de volgende acht vragen beantwoorden.</p>
+        <h3 id="vraag1">Vraag 1</h3>
+        <p>Hoeveel metalen staven bevat het klimrek naast deze bank?</p>
+        <input type="number" id="input1">
+        <h3 id="vraag2">Vraag 2</h3>
+        <p>Wat is de naam van deze straat?</p>
+        <input type="text" id="input2">
+        <h3 id="vraag3">Vraag 3</h3>
+        <p>Welke sport wordt hier het vaakst gespeeld?</p>
+        <input type="text" id="input3">
+        <h3 id="vraag4">Vraag 4</h3>
+        <p>Hoeveel bomen telt dit eiland?</p>
+        <input type="number" id="input4">
+        <h3 id="vraag5">Vraag 5</h3>
+        <p>Wie is de slimste mens ter wereld?</p>
+        <input type="text" id="input5">
+        <h3 id="vraag6">Vraag 6</h3>
+        <p>De twee kortste zijden van dit driehoekige eiland zijn 60 en 80, wat is de langste zijde?</p>
+        <input type="number" id="input6">
+        <h3 id="vraag7">Vraag 7</h3>
+        <p>Hoeveel ingrediënten zijn er nodig voor donkere materie?</p>
+        <input type="number" id="input7">
+        <h3 id="vraag8">Vraag 8</h3>
+        <p>$$\int_{0}^{\pi}x \sin(x) \space dx$$</p>
+        <input type="text" id="input8">
+        <br>
+        <button id="verify" onclick="verify()">Verifiëren</button>
+        <script>
+            // Code 1: product of hour and minute
+            // Code 2: (sum of hour and minute) * minute
+            // Code 3: minute**3
+            function verify() {
+                var input1 = document.getElementById("input1").value
+                var input2 = document.getElementById("input2").value
+                var input3 = document.getElementById("input3").value
+                var input4 = document.getElementById("input4").value
+                var input5 = document.getElementById("input5").value
+                var input6 = document.getElementById("input6").value
+                var input7 = document.getElementById("input7").value
+                var input8 = document.getElementById("input8").value
+                if (input1 == 32 && input2.toLowerCase() == "hoevelaan" && input3.toLowerCase() == "voetbal" && input4 == 32 && input5.toLowerCase() == "vivo" && input6 == 100 && input7 == 4 && (input8.toLowerCase() == "pi" || input8 == "π")) {
+                    window.location.href = "hemelsgas_.html"; 
+                } else {
+                    if (input1 == 32) {
+                        document.getElementById("vraag1").style.color = "green"
+                    } else {
+                        document.getElementById("vraag1").style.color = "red"
+                    }
+
+                    if (input2.toLowerCase() == "hoevelaan") {
+                        document.getElementById("vraag2").style.color = "green"
+                    } else {
+                        document.getElementById("vraag2").style.color = "red"
+                    }
+
+                    if (input3.toLowerCase() == "voetbal") {
+                        document.getElementById("vraag3").style.color = "green"
+                    } else {
+                        document.getElementById("vraag3").style.color = "red"
+                    }
+
+                    if (input4 == 32) {
+                        document.getElementById("vraag4").style.color = "green"
+                    } else {
+                        document.getElementById("vraag4").style.color = "red"
+                    }
+
+                    if (input5.toLowerCase() == "vivo") {
+                        document.getElementById("vraag5").style.color = "green"
+                    } else {
+                        document.getElementById("vraag5").style.color = "red"
+                    }
+
+                    if (input6 == 100) {
+                        document.getElementById("vraag6").style.color = "green"
+                    } else {
+                        document.getElementById("vraag6").style.color = "red"
+                    }
+
+                    if (input7 == 4) {
+                        document.getElementById("vraag7").style.color = "green"
+                    } else {
+                        document.getElementById("vraag7").style.color = "red"
+                    }
+
+                    if (input8.toLowerCase() == "pi" || input8 == "π") {
+                        document.getElementById("vraag8").style.color = "green"
+                    } else {
+                        document.getElementById("vraag8").style.color = "red"
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

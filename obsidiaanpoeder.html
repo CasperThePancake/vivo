@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.webp?v=2">
+</head>
+<body>
+    <div id="header">
+        <img src="assets/logo.webp" id="logo">
+    </div>
+    <div id="contents">
+        <h1>Teleporteersysteem</h1>
+        <h2>Voorwerp: Obsidiaanpoeder</h2>
+        <p>Om deze teleportatie te voltooien, dient u de volgende code te ontcijferen.</p>
+        <p id="code">mpqunlthslu</p>
+        <input type="text" id="input">
+        <button id="verify" onclick="verify()">Verifiëren</button>
+        <script>
+            function verify() {
+                var input = document.getElementById("input").value.toString()
+                console.log(input)
+                if (input.toLowerCase() == "fijngemalen") {
+                    window.location.href = "obsidiaanpoeder_.html"; 
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.webp?v=2">
+</head>
+<body>
+    <div id="header">
+        <img src="assets/logo.webp" id="logo">
+    </div>
+    <div id="contents">
+        <h1>Teleporteersysteem</h1>
+        <h2>Document: Bereiding donkere materie</h2>
+        <p>Het document is succesvol verzonden.</p>
+        <input type="text" id="input">
+        <button id="verify" onclick="verify()">Verifiëren</button>
+        <script>
+            function verify() {
+                var input = document.getElementById("input").value
+                console.log(input)
+                if (input == 2182) {
+                    window.location.href = "stem_.html"; 
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

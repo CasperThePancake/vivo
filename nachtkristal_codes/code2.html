@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.webp?v=2">
+</head>
+<body>
+    <div id="header">
+        <img src="../assets/logo.webp" id="logo">
+    </div>
+    <div id="contents">
+        <h1>Teleporteersysteem</h1>
+        <h2>Nachtkristal: Code 2</h2>
+        <p id="display">Uw code is <i>XXX</i>. Scan de QR-code opnieuw om de meest recente code te ontvangen.</p>
+        <script>
+        // Retrieve the stored value and display it
+        window.onload = function() {
+            const code = localStorage.getItem('code2');
+            if (code) {
+                document.getElementById('display').innerHTML = 'Uw code is <i>' + code + '</i>. Scan de QR-code opnieuw om de meest recente code te ontvangen.';
+            } else {
+                document.getElementById('display').innerHTML = 'De code kon niet worden gevonden. Gelieve de QR-code opnieuw te scannen.';
+            }
+        };
+        </script>
+    </div>
+</body>
+</html>
