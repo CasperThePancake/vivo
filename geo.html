@@ -42,6 +42,7 @@
 
         // Function to get the current location and calculate the distance
         function recalculateDistance() {
+            document.getElementById('distance').textContent = 'Aan het berekenen...'
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     const latitude = position.coords.latitude;
