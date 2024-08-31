@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.webp?v=2">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div id="header">
+        <img src="assets/logo.webp" id="logo">
+    </div>
+    <h1>Opspoorsysteem</h1>
+    <h2>Doelwit: Gegevens over begraafplaats</h2>
+    <p>Uw afstand tot het doelwit bedraagt:</p>
+    <h3 id="distance">Aan het berekenen...</h3>
+    <div id="calc">
+        <button onclick="recalculateDistance()">Herberekenen</button>
+    </div>
+    <script>
+        // Target coordinates (hard-coded)
+        const targetLatitude = 50.90133056;
+        const targetLongitude = 3.39953889;
+
+        // Function to calculate distance using the Haversine formula
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371e3; // Radius of the Earth in meters
+            const φ1 = lat1 * Math.PI/180; // φ, λ in radians
+            const φ2 = lat2 * Math.PI/180;
+            const Δφ = (lat2 - lat1) * Math.PI/180;
+            const Δλ = (lon2 - lon1) * Math.PI/180;
+
+            const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                      Math.cos(φ1) * Math.cos(φ2) *
+                      Math.sin(Δλ/2) * Math.sin(Δλ/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+            return R * c; // Distance in meters
+        }
+
+        // Function to get the current location and calculate the distance
+        function recalculateDistance() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    // Calculate and display the distance
+                    const distance = calculateDistance(latitude, longitude, targetLatitude, targetLongitude);
+                    document.getElementById('distance').textContent = `${distance.toFixed(2)} meter`;
+                }, error => {
+                    document.getElementById('distance').textContent = 'Kon locatie niet ophalen.';
+                });
+            } else {
+                document.getElementById('distance').textContent = 'Geolocatie wordt niet ondersteund door uw browser.';
+            }
+        }
+
+        // Initial calculation on page load
+        recalculateDistance();
+    </script>
+</body>
+</html>
