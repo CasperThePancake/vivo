@@ -15,6 +15,7 @@
     <div id="contents">
         <h1>Raadsel</h1>
         <h2>Doelwit: Begraafplaats Vivo</h2>
+        <h2 id="wrongg" style="color:red;margin-top:5px;">Fout! Gelieve opnieuw te proberen.</h2>
         <p id="intro">Dit raadsel is verborgen. Om het te zien, moet u uw inschattingsvermorgen bewijzen.<br><br>Klik op de onderstaande knop om te beginnen.</p>
         <h2 id="task" style="margin-top:20px;"></h2>
         <div id="questions" style="visibility: hidden;">
@@ -133,6 +134,7 @@
             function begin() {
                 document.getElementById("intro").remove()
                 document.getElementById("begin").remove()
+                document.getElementById("wrongg").remove()
                 document.getElementById("questions").style.visibility = "visible"
 
                 names = ["Maria","Lucca","Cleo","Maud","Eline","Jana","Amber","Casper"]
@@ -161,6 +163,8 @@
                     if (response == responses[person]) {
                         document.getElementById("questions").remove()
                         document.getElementById("raadsel").style.visibility = "visible"
+                        document.getElementById("task").innerHTML = "Helemaal juist!"
+                        document.getElementById("task").style.color = "green";
                     } else {
                         window.location.href = "raadsel_.html"; 
                     }

@@ -94,3 +94,8 @@ button:active {
 #wrong h2 {
     margin-bottom:-15px;
 }
+
+.choices {
+    list-style-type: none;
+    padding: 0;
+}
