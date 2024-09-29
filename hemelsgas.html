@@ -12,12 +12,22 @@
     <div id="header">
         <img src="assets/logo.webp" id="logo">
     </div>
+    <div id="wrong" style="visibility:hidden;">
+        <h1 class="wrong">Fout!</h1>
+        <p>U heeft één of meerdere vragen fout beantwoord. Om te bewijzen dat u geen <a onClick="remove()">robot</a> bent, moet u een opdracht uitvoeren en een straf tolereren.</p>
+        <br>
+        <h2>Uw opdracht:</h2>
+        <p id="opdracht">OPDRACHT</p>
+        <br>
+        <h2>Uw straf:</h2>
+        <p id="straf">STRAF</p>
+    </div>
     <div id="contents">
         <h1>Teleporteersysteem</h1>
         <h2>Voorwerp: Hemels gas</h2>
-        <p>Om deze teleportatie te voltooien, moet u de volgende acht vragen beantwoorden.</p>
+        <p>Om deze teleportatie te voltooien, moet u de volgende tien vragen beantwoorden.</p>
         <h3 id="vraag1">Vraag 1</h3>
-        <p>Hoeveel metalen staven bevat het klimrek naast deze bank?</p>
+        <p>Wat is de som van de verjaardagen van alle genodigden in dagen?</p>
         <input type="text" id="input1">
         <h3 id="vraag2">Vraag 2</h3>
         <p>Wat is de naam van deze straat?</p>
@@ -35,17 +45,20 @@
         <p>De twee kortste zijden van dit driehoekige eiland zijn 60 en 80, wat is de langste zijde?</p>
         <input type="text" id="input6">
         <h3 id="vraag7">Vraag 7</h3>
-        <p>Hoeveel ingrediënten zijn er nodig voor donkere materie?</p>
+        <p>Wie antwoordde er als eerste op de uitnodiging voor deze noodmissie?</p>
         <input type="text" id="input7">
         <h3 id="vraag8">Vraag 8</h3>
         <p>$$\int_{0}^{\pi}x \sin(x) \space dx$$</p>
         <input type="text" id="input8">
+        <h3 id="vraag9">Vraag 9</h3>
+        <p>Wie antwoordde er als laatste op de uitnodiging voor deze noodmissie?</p>
+        <input type="text" id="input9">
+        <h3 id="vraag10">Vraag 10</h3>
+        <p>Wat is de massa (in gram) van 0.4 mol zuiver water?</p>
+        <input type="text" id="input10">
         <br>
         <button id="verify" onclick="verify()">Verifiëren</button>
         <script>
-            // Code 1: product of hour and minute
-            // Code 2: (sum of hour and minute) * minute
-            // Code 3: minute**3
             function verify() {
                 var input1 = document.getElementById("input1").value
                 var input2 = document.getElementById("input2").value
@@ -55,12 +68,31 @@
                 var input6 = document.getElementById("input6").value
                 var input7 = document.getElementById("input7").value
                 var input8 = document.getElementById("input8").value
-                if (input1.toString() == 14 && input2.toLowerCase() == "hoevelaan" && input3.toLowerCase() == "voetbal" && input4.toString() == 14 && input5.toLowerCase() == "vivo" && input6.toString() == 100 && input7.toString() == 4 && (input8.toLowerCase() == "pi" || input8 == "π")) {
+                var input9 = document.getElementById("input9").value
+                var input10 = document.getElementById("input10").value
+                if (input1.toString() == "130" && input2.toLowerCase() == "hoevelaan" && input3.toLowerCase() == "voetbal" && input4.toString() == "14" && input5.toLowerCase() == "vivo" && input6.toString() == "100" && input7.toLowerCase() == "eline" && (input8.toLowerCase() == "pi" || input8 == "π") && input9.toLowerCase() == "cleo" && (input10.toLowerCase() == "7.2" || input10.toLowerCase() == "7,2")) {
                     window.location.href = "hemelsgas_.html";
-                } else if (input1.toLowerCase() == "begraafplaats" && input2.toLowerCase() == "begraafplaats" && input3.toLowerCase() == "begraafplaats" && input4.toLowerCase() == "begraafplaats" && input5.toLowerCase() == "begraafplaats" && input6.toLowerCase() == "begraafplaats" && input7.toLowerCase() == "begraafplaats" && input8.toLowerCase() == "begraafplaats") {
+                } else if (input1.toLowerCase() == "begraafplaats" && input2.toLowerCase() == "begraafplaats" && input3.toLowerCase() == "begraafplaats" && input4.toLowerCase() == "begraafplaats" && input5.toLowerCase() == "begraafplaats" && input6.toLowerCase() == "begraafplaats" && input7.toLowerCase() == "begraafplaats" && input8.toLowerCase() == "begraafplaats" && input9.toLowerCase() == "begraafplaats" && input10.toLowerCase() == "begraafplaats") {
                     window.location.href = "geo.html";
                 } else {
-                    if (input1.toString() == 14) {
+                    // Er is iets fout, uitdaging!
+                    document.getElementById("wrong").style.visibility = "visible";
+                    opdrachten = ["Maak een menselijke toren van drie personen","Doe 10 push-ups","Hou 30 seconden een plankpositie vast","Draai allemaal 5 rondjes om je eigen as","Doe Casper luidop lachen","Win een potje blad-steen-schaar tegen Casper","Zeg het alfabet achterstevoren op","Doe 15 squats","Hou je adem in voor minstens 1 minuut","Zeg 'hallo' in minstens 10 verschillende talen","Versla Casper in een korte spurt","Geef Casper drinkbaar water","Geef elkaar een groepsknuffel van minstens 10 seconden","Doe een handstand","Versla Casper in een armworstelwedstrijd","Zeg een woord dat begint met elke letter van het alfabet binnen 1 minuut","Loop een toertje rond het eiland op iemands rug"]
+                    straffen = ["Kies één iemand uit die de volgende poging helemaal alleen moet invullen, de anderen mogen niet communiceren","Bij de volgende poging mag niemand spreken","Voor de volgende poging mag je je handen niet gebruiken","Bij de volgende poging moet iedereen achter elkaar staan","Bij de volgende poging moet iedereen Frans spreken","Kies twee mensen uit die de volgende poging alleen moeten invullen, de anderen mogen niet communiceren","Bij de volgende poging moet iedereen op één been staan","Je hebt geluk, deze keer geen straf...","Je hebt geluk! Geen straf, Casper moet je het juiste antwoord geven op één vraag naar keuze."]
+                    document.getElementById("opdracht").innerHTML = opdrachten[Math.floor(Math.random()*opdrachten.length)]
+                    document.getElementById("straf").innerHTML = straffen[Math.floor(Math.random()*straffen.length)]
+                    document.getElementById("input1").value = ""
+                    document.getElementById("input2").value = ""
+                    document.getElementById("input3").value = ""
+                    document.getElementById("input4").value = ""
+                    document.getElementById("input5").value = ""
+                    document.getElementById("input6").value = ""
+                    document.getElementById("input7").value = ""
+                    document.getElementById("input8").value = ""
+                    document.getElementById("input9").value = ""
+                    document.getElementById("input10").value = ""
+                    // Aanduiden wat er fout is!
+                    if (input1.toString() == "130") {
                         document.getElementById("vraag1").style.color = "green"
                     } else {
                         document.getElementById("vraag1").style.color = "red"
@@ -78,7 +110,7 @@
                         document.getElementById("vraag3").style.color = "red"
                     }
 
-                    if (input4.toString() == 14) {
+                    if (input4.toString() == "14") {
                         document.getElementById("vraag4").style.color = "green"
                     } else {
                         document.getElementById("vraag4").style.color = "red"
@@ -90,13 +122,13 @@
                         document.getElementById("vraag5").style.color = "red"
                     }
 
-                    if (input6.toString() == 100) {
+                    if (input6.toString() == "100") {
                         document.getElementById("vraag6").style.color = "green"
                     } else {
                         document.getElementById("vraag6").style.color = "red"
                     }
 
-                    if (input7.toString() == 4) {
+                    if (input7.toLowerCase() == "eline") {
                         document.getElementById("vraag7").style.color = "green"
                     } else {
                         document.getElementById("vraag7").style.color = "red"
@@ -111,6 +143,24 @@
                     if (input5.toLowerCase() == "casper") {
                         document.getElementById("smart").innerHTML += " (niet Casper, maar bedankt)"
                     }
+
+                    if (input9.toLowerCase() == "cleo") {
+                        document.getElementById("vraag9").style.color = "green"
+                    } else {
+                        document.getElementById("vraag9").style.color = "red"
+                    }
+
+                    if (input10 == "7.2" || input10 == "7,2") {
+                        document.getElementById("vraag10").style.color = "green"
+                    } else {
+                        document.getElementById("vraag10").style.color = "red"
+                    }
+                }
+            }
+            function remove() {
+                let response = prompt("Enter the code:", "");
+                if (response == "314159") {
+                    document.getElementById("wrong").style.visibility = "hidden";
                 }
             }
         </script>

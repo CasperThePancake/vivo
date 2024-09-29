@@ -1,4 +1,4 @@
-h1 {
+h1:not(.wrong) {
     text-align: center;
     letter-spacing: 2px;
     font-size:x-large;
@@ -12,6 +12,7 @@ h2 {
 
 h3 {
     text-align: center;
+    margin-bottom:0px;
 }
 
 p {
@@ -23,6 +24,7 @@ p {
 body {
     font-family: Georgia;
     background-color: #d2cdc1;
+    overflow-x:hidden;
 }
 
 #header, #contents {
@@ -67,4 +69,28 @@ button:active {
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+#wrong {
+    z-index:999999;
+    background-color: rgba(255, 0, 0, 0.8);
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    transform:translateX(-10px) translateY(-110px)
+}
+
+#wrong h1 {
+    z-index:99999999;
+    text-align: center;
+}
+
+#wrong p {
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:30px;
+}
+
+#wrong h2 {
+    margin-bottom:-15px;
 }
