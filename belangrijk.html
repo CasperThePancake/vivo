@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.webp?v=2">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div id="header">
+        <img src="assets/logo.webp" id="logo">
+    </div>
+    <div id="wrong" style="visibility:hidden;">
+        <h1 class="wrong">Fout!</h1>
+        <p>U heeft één of meerdere vragen fout beantwoord. Om te bewijzen dat u geen <a onClick="remove()">robot</a> bent, moet u een opdracht uitvoeren en een straf tolereren.</p>
+        <br>
+        <h2>Uw opdracht:</h2>
+        <p id="opdracht">OPDRACHT</p>
+        <br>
+        <h2>Uw straf:</h2>
+        <p id="straf">STRAF</p>
+    </div>
+    <div id="contents">
+        <h1>Welkom</h1>
+        <h2>Verdere info over uw noodmissie</h2>
+        <p>Dag mevrouw Vermeersch,<br><br>Op 9 november neemt u deel aan een noodmissie om de wereld te redden. Hier volgt verdere informatie over deze spannende opdracht.</p>
+        <h3>Praktische informatie</h3>
+        <p>Indien uw noodmissie geslaagd is, zal deze ongeveer <b>vier uur</b> duren.<br>U zal in die tijd een afstand van <b>zeven kilometer</b> afleggen.<br><br>Vergeet niet om <b>oortjes of een koptelefoon</b> mee te nemen.<br><br>U dient nog steeds een "account" aan te maken op de app "Discord" en de volgende link te gebruiken: <a href="https://discord.gg/pGFdxt8TPQ">https://discord.gg/pGFdxt8TPQ</a></p>
+        <h3>Tijdstip en locatie</h3>
+        <p>Zaterdag 9 november, 2024 om 15u<br><br>Ernest Brengierstraat 14, Sint-Eloois-Vijve<br>(8 minuten rijden van uw thuislocatie)</p>
+        <h3>Belangrijk: vragenlijst</h3>
+        <p>Voor uw deelname is het invullen van de volgende vragenlijst verplicht. Uw antwoorden worden enkel doorgegeven aan de ondertussen bekende tussenpersoon.</p>
+        <button onClick="lijst()">Vragenlijst</button>
+        <script>
+            function lijst() {
+                window.open("https://forms.gle/QR6inahqwANRB7if6", '_blank').focus();
+            }
+        </script>
+    </div>
+</body>
+</html>
