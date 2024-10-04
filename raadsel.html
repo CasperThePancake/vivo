@@ -28,6 +28,9 @@
                         <label>
                             <input type="radio" name="question0" value="B" /><span>Groen</span>
                         </label>
+                        <label>
+                            <input type="radio" name="question0" value="C" /><span>Blauw</span>
+                        </label>
                     </li>
                 </ul>
             <h3 id="q2"></h3>
@@ -37,13 +40,25 @@
                         <input type="radio" name="question1" value="A" /><span>Capibara</span>
                     </label>
                     <label>
+                        <input type="radio" name="question1" value="G" /><span>Hond</span>
+                    </label>
+                    <label>
                         <input type="radio" name="question1" value="B" /><span>Kwal</span>
                     </label>
                     <label>
                         <input type="radio" name="question1" value="C" /><span>Kat</span>
                     </label>
                     <label>
-                        <input type="radio" name="question1" value="C" /><span>Schildpad</span>
+                        <input type="radio" name="question1" value="E" /><span>Vogel</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="D" /><span>Schildpad</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="F" /><span>Vis</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="H" /><span>Olifant</span>
                     </label>
                 </li>
             </ul>
@@ -51,16 +66,28 @@
             <ul class="choices">
                 <li>
                     <label>
+                        <input type="radio" name="question2" value="C" /><span>Frieten</span>
+                    </label>
+                    <label>
                         <input type="radio" name="question2" value="A" /><span>Spaghetti bolognese</span>
                     </label>
                     <label>
                         <input type="radio" name="question2" value="B" /><span>Sushi</span>
                     </label>
                     <label>
-                        <input type="radio" name="question2" value="C" /><span>Frieten</span>
+                        <input type="radio" name="question2" value="H" /><span>Pizza</span>
                     </label>
                     <label>
-                        <input type="radio" name="question2" value="C" /><span>Pannenkoeken</span>
+                        <input type="radio" name="question2" value="D" /><span>Pannenkoeken</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="E" /><span>Gebakken rijst</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="F" /><span>Caesar salade</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="G" /><span>Pasta pesto</span>
                     </label>
                 </li>
             </ul>
@@ -136,7 +163,7 @@
                 document.getElementById("questions").style.visibility = "visible"
 
                 names = ["Maria","Lucca","Cleo","Maud","Eline","Jana","Amber","Casper"]
-                responses = ["ABABCD","AACAAD","AAAAAA","AAAAAA","AAAAAA","ACBDBA","AAAAAA","BCCDCC"]
+                responses = ["ABABCD","AACAAD","BEEDBB","BHHBBD","CFFDCB","ACBDBA","CGGCBD","BDDDCC"]
                 
                 document.getElementById("task").innerHTML = "Hoe goed kan u "+names[person]+" inschatten?"
                 document.getElementById("info").innerHTML = names[person]+" mag niet communiceren met de rest van de groep en moet op een afstand gaan staan."
@@ -161,6 +188,7 @@
                     if (response == responses[person]) {
                         document.getElementById("questions").remove()
                         document.getElementById("raadsel").style.visibility = "visible"
+                        document.getElementById("task").innerHTML = "U heeft goed geantwoord. Uw raadsel is nu zichtbaar."
                     } else {
                         window.location.href = "raadsel_.html"; 
                     }
