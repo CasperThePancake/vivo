@@ -14,20 +14,22 @@
     </div>
     <h1>Opspoorsysteem</h1>
     <h2>Doelwit: Gegevens over begraafplaats</h2>
-    <p>Uw afstand tot het doelwit bedraagt:</p>
-    <h3 id="distance">Aan het berekenen...</h3>
+    <h3>Uw afstand tot het doelwit bedraagt:</h3>
+    <p id="distance">Aan het berekenen...</p>
+    <h3>Richting om te volgen:</h3>
+    <p id="direction">Aan het berekenen...</p>
+    <br>
     <div id="calc">
         <button onclick="recalculateDistance()">Herberekenen</button>
     </div>
+
     <script>
-        // Target coordinates (hard-coded)
         const targetLatitude = 50.90133056;
         const targetLongitude = 3.39953889;
 
-        // Function to calculate distance using the Haversine formula
         function calculateDistance(lat1, lon1, lat2, lon2) {
             const R = 6371e3; // Radius of the Earth in meters
-            const φ1 = lat1 * Math.PI/180; // φ, λ in radians
+            const φ1 = lat1 * Math.PI/180;
             const φ2 = lat2 * Math.PI/180;
             const Δφ = (lat2 - lat1) * Math.PI/180;
             const Δλ = (lon2 - lon1) * Math.PI/180;
@@ -40,9 +42,41 @@
             return R * c; // Distance in meters
         }
 
-        // Function to get the current location and calculate the distance
+        function calculateBearing(lat1, lon1, lat2, lon2) {
+            const φ1 = lat1 * Math.PI/180;
+            const φ2 = lat2 * Math.PI/180;
+            const Δλ = (lon2 - lon1) * Math.PI/180;
+
+            const y = Math.sin(Δλ) * Math.cos(φ2);
+            const x = Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+
+            const θ = Math.atan2(y, x);
+            return (θ * 180/Math.PI + 360) % 360; // Bearing in degrees
+        }
+
+        function getCompassDirection(bearing) {
+            if (bearing >= 337.5 || bearing < 22.5) {
+                return 'Noord';
+            } else if (bearing >= 22.5 && bearing < 67.5) {
+                return 'Noordoost';
+            } else if (bearing >= 67.5 && bearing < 112.5) {
+                return 'Oost';
+            } else if (bearing >= 112.5 && bearing < 157.5) {
+                return 'Zuidoost';
+            } else if (bearing >= 157.5 && bearing < 202.5) {
+                return 'Zuid';
+            } else if (bearing >= 202.5 && bearing < 247.5) {
+                return 'Zuidwest';
+            } else if (bearing >= 247.5 && bearing < 292.5) {
+                return 'West';
+            } else {
+                return 'Noordwest';
+            }
+        }
+
         function recalculateDistance() {
-            document.getElementById('distance').textContent = 'Aan het berekenen...'
+            document.getElementById('distance').textContent = 'Aan het berekenen...';
+            document.getElementById('direction').textContent = 'Aan het berekenen...';
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     const latitude = position.coords.latitude;
@@ -51,11 +85,20 @@
                     // Calculate and display the distance
                     const distance = calculateDistance(latitude, longitude, targetLatitude, targetLongitude);
                     document.getElementById('distance').textContent = `${distance.toFixed(2)} meter`;
+
+                    // Calculate the bearing (direction to target)
+                    const bearing = calculateBearing(latitude, longitude, targetLatitude, targetLongitude);
+
+                    // Determine the compass direction to follow
+                    const direction = getCompassDirection(bearing);
+                    document.getElementById('direction').textContent = direction;
                 }, error => {
                     document.getElementById('distance').textContent = 'Kon locatie niet ophalen.';
+                    document.getElementById('direction').textContent = 'Kon richting niet berekenen.';
                 });
             } else {
                 document.getElementById('distance').textContent = 'Geolocatie wordt niet ondersteund door uw browser.';
+                document.getElementById('direction').textContent = 'Kon richting niet berekenen.';
             }
         }
 
