@@ -167,6 +167,9 @@
                 
                 document.getElementById("task").innerHTML = "Hoe goed kan u "+names[person]+" inschatten?"
                 document.getElementById("info").innerHTML = names[person]+" mag niet communiceren met de rest van de groep en moet op een afstand gaan staan."
+                if (names[person] == "Amber") {
+                    document.getElementById("info").innerHTML = "U mag geen contact opnemen met Amber om deze vragen te beantwoorden."
+                }
                 document.getElementById("q1").innerHTML = "Wat is de favoriete kleur van "+names[person]+"?"
                 document.getElementById("q2").innerHTML = "Wat is het favoriete dier van "+names[person]+"?"
                 document.getElementById("q3").innerHTML = "Wat is het favoriete gerecht van "+names[person]+"?"
